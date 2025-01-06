@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# LmsystemsClient API
+# LmsystemsClient
 
 The LMSystems SDK provides two client implementations: `LmsystemsClient` (async) and `SyncLmsystemsClient` (sync). Both offer the same functionality with different execution models.
 

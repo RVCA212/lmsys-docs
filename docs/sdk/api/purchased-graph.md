@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# PurchasedGraph API
+# PurchasedGraph
 
 The `PurchasedGraph` class provides a way to integrate purchased marketplace graphs into your own LangGraph applications. It implements the `PregelProtocol`, making it compatible with LangGraph's `StateGraph` system.
 
