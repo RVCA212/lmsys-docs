@@ -21,8 +21,8 @@ load_dotenv()
 
 # Define required state values (these will vary based on the graph you're using)
 state_values = {
-    "temperature": 0.7,
-    "model": "gpt-4o"
+    "city": "Seattle",
+    "state": "WA",
 }
 
 # Instantiate the purchased graph
@@ -40,13 +40,13 @@ graph = builder.compile()
 
 # Invoke with just messages (other state values are automatically included)
 result = graph.invoke({
-    "messages": [{"role": "user", "content": "Hello, how can you help me today?"}]
+    "messages": [{"role": "user", "content": "What's the weather right now?"}]
 })
 print(result)
 
 # Stream outputs
 for chunk in graph.stream({
-    "messages": [{"role": "user", "content": "Hello, how can you help me today?"}]
+    "messages": [{"role": "user", "content": "What's the weather right now?"}]
 }, subgraphs=True):
     print(chunk)
 ```
@@ -78,9 +78,9 @@ async def main():
         async for chunk in client.stream_run(
             thread=thread,
             input={
-                "messages": [{"role": "user", "content": "Hello!"}],
-                "temperature": 0.7,
-                "model": "gpt-4"
+                "messages": [{"role": "user", "content": "What's the weather right now?"}],
+                "city": "Seattle",
+                "state": "WA",
             },
             stream_mode=["messages"]
         ):
@@ -127,10 +127,10 @@ def main():
             thread=thread,
             input={
                 "messages": [
-                    {"role": "user", "content": "Hello!"}
+                    {"role": "user", "content": "What's the weather right now?"}
                 ],
-                "temperature": 0.7,
-                "model": "gpt-4"
+                "city": "Seattle",
+                "state": "WA",
             },
             stream_mode=["messages", "updates"],
             multitask_strategy=MultitaskStrategy.REJECT
@@ -194,7 +194,6 @@ async def main():
                 "messages": [
                     {"role": "user", "content": "continue"}
                 ],
-                "accepted": True
             },
             as_node="human_interaction"
         )
@@ -263,7 +262,6 @@ def main():
                 "messages": [
                     {"role": "user", "content": "continue"}
                 ],
-                "accepted": True
             },
             as_node="human_interaction"
         )
