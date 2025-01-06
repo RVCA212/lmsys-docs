@@ -8,7 +8,7 @@ This page provides comprehensive examples of using the LMSystems SDK in differen
 
 ## Basic Usage with PurchasedGraph
 
-The simplest way to use a purchased graph within a LangGraph application:
+The `PurchasedGraph` class allows you to integrate purchased marketplace graphs into your LangGraph applications. Here's a complete example:
 
 ```python
 from lmsystems.purchased_graph import PurchasedGraph
@@ -25,11 +25,17 @@ state_values = {
     "state": "WA",
 }
 
-# Instantiate the purchased graph
+# Instantiate the purchased graph with configuration
 purchased_graph = PurchasedGraph(
     graph_name="your-graph-name",
     api_key=os.environ.get("LMSYSTEMS_API_KEY"),
-    default_state_values=state_values
+    default_state_values=state_values,
+    config={
+        "configurable": {
+            "temperature": 0.7,  # Optional runtime configuration
+            "max_tokens": 1000
+        }
+    }
 )
 
 # Define your parent graph with MessagesState schema
@@ -38,17 +44,100 @@ builder.add_node("purchased_node", purchased_graph)
 builder.add_edge(START, "purchased_node")
 graph = builder.compile()
 
-# Invoke with just messages (other state values are automatically included)
+# Basic invocation (state values are automatically included)
 result = graph.invoke({
     "messages": [{"role": "user", "content": "What's the weather right now?"}]
 })
 print(result)
 
-# Stream outputs
+# Stream with all available modes
 for chunk in graph.stream({
     "messages": [{"role": "user", "content": "What's the weather right now?"}]
-}, subgraphs=True):
-    print(chunk)
+}, stream_mode=["messages", "values", "updates"], subgraphs=True):
+    if isinstance(chunk, dict):
+        if "message" in chunk:
+            print(f"Message: {chunk['message']['content']}")
+        elif "value" in chunk:
+            print(f"Value update: {chunk['value']}")
+        elif "update" in chunk:
+            print(f"Status update: {chunk['update']}")
+```
+
+### Error Handling with PurchasedGraph
+
+Here's how to properly handle errors when using PurchasedGraph:
+
+```python
+from lmsystems import (
+    PurchasedGraph,
+    AuthenticationError,
+    GraphError,
+    InputError,
+    APIError
+)
+
+try:
+    # Initialize graph
+    graph = PurchasedGraph(
+        graph_name="your-graph-name",
+        api_key=os.environ.get("LMSYSTEMS_API_KEY")
+    )
+
+    # Use the graph
+    result = graph.invoke({
+        "messages": [{"role": "user", "content": "Hello"}]
+    })
+
+except AuthenticationError as e:
+    print(f"Authentication failed: {e}")
+    # Handle invalid API key
+except GraphError as e:
+    print(f"Graph execution error: {e}")
+    # Handle graph-specific errors
+except InputError as e:
+    print(f"Invalid input: {e}")
+    # Handle invalid parameters
+except APIError as e:
+    print(f"API error: {e}")
+    # Handle communication issues
+```
+
+### State Management with PurchasedGraph
+
+Example of managing state during graph execution:
+
+```python
+# Initialize graph with default state
+graph = PurchasedGraph(
+    graph_name="your-graph-name",
+    api_key=os.environ.get("LMSYSTEMS_API_KEY"),
+    default_state_values={
+        "system_prompt": "You are a helpful assistant",
+        "temperature": 0.7
+    }
+)
+
+# Get current state
+state = graph.get_state(config, subgraphs=True)
+print("Current state:", state)
+
+# Update state during execution
+new_config = graph.update_state(
+    config=config,
+    values={
+        "system_prompt": "You are a coding assistant",
+        "temperature": 0.9
+    },
+    as_node="configuration_node"
+)
+
+# Get state history with filtering
+history = graph.get_state_history(
+    config=config,
+    filter={"node": "specific_node"},
+    before=some_config,
+    limit=10
+)
 ```
 
 ## Async Client Usage
