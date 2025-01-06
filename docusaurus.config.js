@@ -72,6 +72,11 @@ const config = {
             label: 'Documentation',
           },
           {
+            href: 'https://colab.research.google.com/drive/18IGOYcnN_CZSuH6RBwIjeXq9zMMs59OQ?usp=sharing',
+            label: 'Try in Colab',
+            position: 'right',
+          },
+          {
             href: 'https://github.com/LMSystems-ai/lmsystems-sdk',
             label: 'GitHub',
             position: 'right',
