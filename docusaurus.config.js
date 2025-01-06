@@ -82,7 +82,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://www.lmsystems.ai',
+            href: 'https://www.lmsystems.ai/marketplace',
             label: 'Marketplace',
             position: 'right',
           },
