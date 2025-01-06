@@ -1,0 +1,165 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #6b7fe8;
+  --ifm-color-primary-dark: #4b63e0;
+  --ifm-color-primary-darker: #3b55dc;
+  --ifm-color-primary-darkest: #2b47d8;
+  --ifm-color-primary-light: #7b8bed;
+  --ifm-color-primary-lighter: #8595ef;
+  --ifm-color-primary-lightest: #90a0f1;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #6b7fe8;
+  --ifm-color-primary-dark: #4b63e0;
+  --ifm-color-primary-darker: #3b55dc;
+  --ifm-color-primary-darkest: #2b47d8;
+  --ifm-color-primary-light: #7b8bed;
+  --ifm-color-primary-lighter: #8595ef;
+  --ifm-color-primary-lightest: #90a0f1;
+  --ifm-background-color: #0a0a0a;
+  --ifm-background-surface-color: #151515;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+}
+
+/* Custom styles */
+.navbar {
+  box-shadow: none;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+.footer--dark {
+  --ifm-footer-background-color: var(--ifm-background-surface-color);
+  border-top: 1px solid var(--ifm-toc-border-color);
+}
+
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--ifm-toc-border-color) !important;
+}
+
+.theme-doc-toc-desktop {
+  border-left: 1px solid var(--ifm-toc-border-color);
+}
+
+/* Code blocks */
+.prism-code {
+  background-color: var(--ifm-background-surface-color) !important;
+  border: 1px solid var(--ifm-toc-border-color);
+}
+
+/* Inline code */
+code {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 4px;
+}
+
+/* Buttons */
+.button {
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 101, 229, 0.2);
+}
+
+/* Cards */
+.card {
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Tables */
+table {
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th {
+  background-color: var(--ifm-background-surface-color);
+}
+
+/* Admonitions */
+.alert {
+  border: 1px solid var(--ifm-alert-border-color);
+  border-radius: 8px;
+}
+
+/* Search */
+.DocSearch {
+  --docsearch-searchbox-background: var(--ifm-background-surface-color);
+  --docsearch-searchbox-focus-background: var(--ifm-background-surface-color);
+  --docsearch-hit-background: var(--ifm-background-surface-color);
+  --docsearch-modal-background: var(--ifm-background-color);
+}
+
+.DocSearch-Button {
+  border: 1px solid var(--ifm-toc-border-color);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ifm-background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-toc-border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-color-primary);
+}
+
+.heroBanner {
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+/* Logo sizing */
+.navbar__logo {
+  height: 4rem; /* Adjust this value to match your desired height */
+  width: auto; /* This maintains aspect ratio */
+}
+
+/* If needed, add padding to ensure proper spacing */
+.navbar__brand {
+  margin-right: 1rem;
+}
+
+/* Dark mode adjustments if needed */
+[data-theme='dark'] .navbar__logo {
+  filter: brightness(1.5); /* Optional: makes logo slightly brighter in dark mode */
+}

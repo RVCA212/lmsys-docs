@@ -1,0 +1,27 @@
+{
+  "id": "sdk/getting-started/adding-config",
+  "title": "Adding Configuration to Your Graph",
+  "description": "When selling your graph on our marketplace, you'll need to modify your LangGraph app to accept configuration values that can override environment variables. This enables buyers to use their own API keys while you maintain yours for testing and development.",
+  "source": "@site/docs/sdk/getting-started/adding-config.md",
+  "sourceDirName": "sdk/getting-started",
+  "slug": "/sdk/getting-started/adding-config",
+  "permalink": "/docs/sdk/getting-started/adding-config",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/LMSystems-ai/lmsystems-sdk/tree/main/docs/docs/sdk/getting-started/adding-config.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Installation Guide",
+    "permalink": "/docs/sdk/getting-started/installation"
+  },
+  "next": {
+    "title": "LmsystemsClient API",
+    "permalink": "/docs/sdk/api/lmsystems-client"
+  }
+}

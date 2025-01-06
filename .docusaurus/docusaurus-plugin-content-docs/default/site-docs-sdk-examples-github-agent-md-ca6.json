@@ -1,0 +1,23 @@
+{
+  "id": "sdk/examples/github-agent",
+  "title": "GitHub Agent Example",
+  "description": "This example demonstrates how to use the LMSystems SDK with our GitHub Agent graph, which can analyze GitHub repositories.",
+  "source": "@site/docs/sdk/examples/github-agent.md",
+  "sourceDirName": "sdk/examples",
+  "slug": "/sdk/examples/github-agent",
+  "permalink": "/docs/sdk/examples/github-agent",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/LMSystems-ai/lmsystems-sdk/tree/main/docs/docs/sdk/examples/github-agent.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Usage Examples",
+    "permalink": "/docs/sdk/examples/usage-examples"
+  }
+}

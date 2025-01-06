@@ -1,0 +1,63 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "intro",
+          "docs": [
+            {
+              "id": "intro",
+              "path": "/docs/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sdk/api/lmsystems-client",
+              "path": "/docs/sdk/api/lmsystems-client",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sdk/api/purchased-graph",
+              "path": "/docs/sdk/api/purchased-graph",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sdk/examples/github-agent",
+              "path": "/docs/sdk/examples/github-agent",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sdk/examples/usage-examples",
+              "path": "/docs/sdk/examples/usage-examples",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sdk/getting-started/adding-config",
+              "path": "/docs/sdk/getting-started/adding-config",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sdk/getting-started/installation",
+              "path": "/docs/sdk/getting-started/installation",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/docs/intro",
+                "label": "Introduction"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}
