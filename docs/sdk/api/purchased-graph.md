@@ -24,8 +24,7 @@ PurchasedGraph(
     api_key: str,                                       # Your LMSystems API key
     config: Optional[RunnableConfig] = None,            # Additional configuration
     default_state_values: Optional[dict] = None,        # Default values for required state parameters
-    base_url: str = Config.DEFAULT_BASE_URL,           # Base URL for the marketplace backend
-    development_mode: bool = False                      # Whether to run in development mode
+    base_url: str = Config.DEFAULT_BASE_URL            # Base URL for the marketplace backend
 )
 ```
 
@@ -36,7 +35,6 @@ PurchasedGraph(
 - **config**: Optional runtime configuration (e.g., model parameters, temperature)
 - **default_state_values**: Default values injected into every graph execution
 - **base_url**: Custom marketplace API endpoint (rarely needed)
-- **development_mode**: Enable additional logging and debugging features
 
 ## Core Methods
 
@@ -202,7 +200,6 @@ except APIError as e:
 2. **Configuration**
    - Store API keys in environment variables
    - Use configuration for runtime adjustments
-   - Keep development_mode off in production
    - Use appropriate configuration values for your use case
 
 3. **Error Handling**
@@ -237,8 +234,7 @@ graph = PurchasedGraph(
             "max_tokens": 1000,
             "model": "gpt-4"
         }
-    },
-    development_mode=True
+    }
 )
 ```
 

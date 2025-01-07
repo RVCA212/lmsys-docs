@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../../lmsystems-sdk"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}
