@@ -17,11 +17,7 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "PurchasedGraph API",
-    "permalink": "/docs/sdk/api/purchased-graph"
-  },
-  "next": {
     "title": "GitHub Agent Example",
-    "permalink": "/docs/sdk/examples/github-agent"
+    "permalink": "/docs/sdk/graphs/github-agent"
   }
 }

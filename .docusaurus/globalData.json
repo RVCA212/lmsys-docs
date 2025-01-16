@@ -26,11 +26,6 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "sdk/examples/github-agent",
-              "path": "/docs/sdk/examples/github-agent",
-              "sidebar": "tutorialSidebar"
-            },
-            {
               "id": "sdk/examples/usage-examples",
               "path": "/docs/sdk/examples/usage-examples",
               "sidebar": "tutorialSidebar"
@@ -43,6 +38,11 @@
             {
               "id": "sdk/getting-started/installation",
               "path": "/docs/sdk/getting-started/installation",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sdk/graphs/github-agent",
+              "path": "/docs/sdk/graphs/github-agent",
               "sidebar": "tutorialSidebar"
             }
           ],

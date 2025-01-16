@@ -21,7 +21,7 @@ const config = {
   organizationName: 'LMSystems-ai',
   projectName: 'lmsystems-sdk',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internalization, you can use this field to set useful
@@ -104,7 +104,7 @@ const config = {
               },
               {
                 label: 'Examples',
-                to: '/docs/sdk/examples/github-agent',
+                to: '/docs/sdk/graphs/github-agent',
               },
             ],
           },

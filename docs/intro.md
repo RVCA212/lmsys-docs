@@ -55,6 +55,7 @@ Use this for direct, standalone usage of purchased graphs. Available in both asy
 - [API Reference](./sdk/api/lmsystems-client.md)
 - [Examples](./sdk/examples/usage-examples.md)
 - [GitHub Repository](https://github.com/LMSystems-ai/lmsystems-sdk)
+- [GitHub Agent](/docs/sdk/graphs/github-agent)
 
 ## Installation
 

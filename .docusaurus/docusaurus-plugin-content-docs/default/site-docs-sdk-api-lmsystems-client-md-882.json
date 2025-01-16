@@ -1,6 +1,6 @@
 {
   "id": "sdk/api/lmsystems-client",
-  "title": "LmsystemsClient API",
+  "title": "LmsystemsClient",
   "description": "The LMSystems SDK provides two client implementations: LmsystemsClient (async) and SyncLmsystemsClient (sync). Both offer the same functionality with different execution models.",
   "source": "@site/docs/sdk/api/lmsystems-client.md",
   "sourceDirName": "sdk/api",
@@ -21,7 +21,7 @@
     "permalink": "/docs/sdk/getting-started/adding-config"
   },
   "next": {
-    "title": "PurchasedGraph API",
+    "title": "PurchasedGraph",
     "permalink": "/docs/sdk/api/purchased-graph"
   }
 }

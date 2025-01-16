@@ -1,6 +1,6 @@
 {
   "id": "sdk/api/purchased-graph",
-  "title": "PurchasedGraph API",
+  "title": "PurchasedGraph",
   "description": "The PurchasedGraph class provides a way to integrate purchased marketplace graphs into your own LangGraph applications. It implements the PregelProtocol, making it compatible with LangGraph's StateGraph system.",
   "source": "@site/docs/sdk/api/purchased-graph.md",
   "sourceDirName": "sdk/api",
@@ -17,11 +17,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "LmsystemsClient API",
+    "title": "LmsystemsClient",
     "permalink": "/docs/sdk/api/lmsystems-client"
   },
   "next": {
-    "title": "Usage Examples",
-    "permalink": "/docs/sdk/examples/usage-examples"
+    "title": "GitHub Agent Example",
+    "permalink": "/docs/sdk/graphs/github-agent"
   }
 }

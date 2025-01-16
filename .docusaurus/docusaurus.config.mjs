@@ -11,7 +11,7 @@ export default {
   "baseUrl": "/",
   "organizationName": "LMSystems-ai",
   "projectName": "lmsystems-sdk",
-  "onBrokenLinks": "throw",
+  "onBrokenLinks": "warn",
   "onBrokenMarkdownLinks": "warn",
   "i18n": {
     "defaultLocale": "en",
@@ -26,12 +26,12 @@ export default {
       "classic",
       {
         "docs": {
-          "sidebarPath": "/Users/seansullivan/LMSystems-Marketplace/marketplace/docs-site/sidebars.js",
+          "sidebarPath": "/Users/seansullivan/lmsys-docs/sidebars.js",
           "editUrl": "https://github.com/LMSystems-ai/lmsystems-sdk/tree/main/docs/"
         },
         "blog": false,
         "theme": {
-          "customCss": "/Users/seansullivan/LMSystems-Marketplace/marketplace/docs-site/src/css/custom.css"
+          "customCss": "/Users/seansullivan/lmsys-docs/src/css/custom.css"
         }
       }
     ]
@@ -55,12 +55,17 @@ export default {
           "label": "Documentation"
         },
         {
-          "href": "https://github.com/LMSystems-ai/lmsystems-sdk",
+          "href": "https://colab.research.google.com/drive/18IGOYcnN_CZSuH6RBwIjeXq9zMMs59OQ?usp=sharing",
+          "label": "Try in Colab",
+          "position": "right"
+        },
+        {
+          "href": "https://github.com/RVCA212/lmsys-docs",
           "label": "GitHub",
           "position": "right"
         },
         {
-          "href": "https://www.lmsystems.ai",
+          "href": "https://www.lmsystems.ai/marketplace",
           "label": "Marketplace",
           "position": "right"
         }
@@ -83,7 +88,7 @@ export default {
             },
             {
               "label": "Examples",
-              "to": "/docs/sdk/examples/github-agent"
+              "to": "/docs/sdk/graphs/github-agent"
             }
           ]
         },

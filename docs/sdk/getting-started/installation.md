@@ -93,7 +93,7 @@ Now that you have installed the SDK, you can:
 
 1. Learn about the [LmsystemsClient API](../api/lmsystems-client.md)
 2. Explore the [PurchasedGraph API](../api/purchased-graph.md)
-3. Check out our [usage examples](../examples/usage-examples.md)
+3. Check out our [GitHub Agent example](../graphs/github-agent.md)
 
 ## Troubleshooting
 
