@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # GitHub Agent Example
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/18IGOYcnN_CZSuH6RBwIjeXq9zMMs59OQ?usp=sharing)
+
 This example demonstrates how to use the LMSystems SDK with our GitHub Agent graph, which can analyze GitHub repositories.
 
 ## Using PurchasedGraph
