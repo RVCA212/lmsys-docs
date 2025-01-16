@@ -24,10 +24,16 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Graphs',
+      items: [
+        'sdk/graphs/github-agent'
+      ],
+    },
+    {
+      type: 'category',
       label: 'Examples',
       items: [
-        'sdk/examples/usage-examples',
-        'sdk/examples/github-agent'
+        'sdk/examples/usage-examples'
       ],
     }
   ],
