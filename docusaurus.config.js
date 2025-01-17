@@ -77,7 +77,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/RVCA212/lmsys-docs',
+            href: 'https://github.com/LMSystems-ai/lmsystems-sdk',
             label: 'GitHub',
             position: 'right',
           },
