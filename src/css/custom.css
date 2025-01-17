@@ -6,10 +6,10 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #6b7fe8;
-  --ifm-color-primary-dark: #4b63e0;
-  --ifm-color-primary-darker: #3b55dc;
-  --ifm-color-primary-darkest: #2b47d8;
+  --ifm-color-primary: #a87ce0;
+  --ifm-color-primary-dark: #9663d4;
+  --ifm-color-primary-darker: #8749c9;
+  --ifm-color-primary-darkest: #7931a3;
   --ifm-color-primary-light: #7b8bed;
   --ifm-color-primary-lighter: #8595ef;
   --ifm-color-primary-lightest: #90a0f1;
@@ -20,12 +20,12 @@
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: #6b7fe8;
-  --ifm-color-primary-dark: #4b63e0;
-  --ifm-color-primary-darker: #3b55dc;
+  --ifm-color-primary-dark: #576bd0;
+  --ifm-color-primary-darker: #4359b8;
   --ifm-color-primary-darkest: #2b47d8;
-  --ifm-color-primary-light: #7b8bed;
-  --ifm-color-primary-lighter: #8595ef;
-  --ifm-color-primary-lightest: #90a0f1;
+  --ifm-color-primary-light: #7f91ef;
+  --ifm-color-primary-lighter: #93a3f6;
+  --ifm-color-primary-lightest: #a7b5fd;
   --ifm-background-color: #0a0a0a;
   --ifm-background-surface-color: #151515;
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
@@ -35,10 +35,11 @@
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--ifm-toc-border-color);
+  background-color: var(--ifm-background-color);
 }
 
 .footer--dark {
-  --ifm-footer-background-color: var(--ifm-background-surface-color);
+  --ifm-footer-background-color: var(--ifm-background-color);
   border-top: 1px solid var(--ifm-toc-border-color);
 }
 
@@ -54,6 +55,114 @@
 .prism-code {
   background-color: var(--ifm-background-surface-color) !important;
   border: 1px solid var(--ifm-toc-border-color);
+}
+
+/* Custom syntax highlighting theme */
+[data-theme='light'] {
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --prism-color-text: #24292e;
+  --prism-color-comment: #6a737d;
+  --prism-color-string: #032f62;
+  --prism-color-var: #005cc5;
+  --prism-color-function: #6f42c1;
+  --prism-color-keyword: #d73a49;
+  --prism-color-number: #005cc5;
+  --prism-color-constant: #005cc5;
+  --prism-color-class: #22863a;
+  --prism-color-builtin: #005cc5;
+  --prism-color-property: #005cc5;
+  --prism-color-namespace: #24292e;
+  --prism-color-punctuation: #24292e;
+  --prism-color-decorator: #6f42c1;
+  --prism-color-regex: #032f62;
+  --prism-color-json-property: #032f62;
+}
+
+[data-theme='dark'] {
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+  --prism-color-text: #e1e4e8;
+  --prism-color-comment: #6a737d;
+  --prism-color-string: #9ecbff;
+  --prism-color-var: #79b8ff;
+  --prism-color-function: #b392f0;
+  --prism-color-keyword: #f97583;
+  --prism-color-number: #79b8ff;
+  --prism-color-constant: #79b8ff;
+  --prism-color-class: #85e89d;
+  --prism-color-builtin: #79b8ff;
+  --prism-color-property: #79b8ff;
+  --prism-color-namespace: #e1e4e8;
+  --prism-color-punctuation: #e1e4e8;
+  --prism-color-decorator: #b392f0;
+  --prism-color-regex: #9ecbff;
+  --prism-color-json-property: #9ecbff;
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  color: var(--prism-color-text);
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--prism-color-comment);
+  font-style: italic;
+}
+
+.token.string {
+  color: var(--prism-color-string);
+}
+
+.token.variable,
+.token.constant,
+.token.inserted {
+  color: var(--prism-color-var);
+}
+
+.token.function {
+  color: var(--prism-color-function);
+}
+
+.token.keyword {
+  color: var(--prism-color-keyword);
+}
+
+.token.number {
+  color: var(--prism-color-number);
+}
+
+.token.boolean {
+  color: var(--prism-color-constant);
+}
+
+.token.class-name {
+  color: var(--prism-color-class);
+}
+
+.token.builtin {
+  color: var(--prism-color-builtin);
+}
+
+.token.property {
+  color: var(--prism-color-property);
+}
+
+.token.namespace {
+  color: var(--prism-color-namespace);
+}
+
+.token.punctuation {
+  color: var(--prism-color-punctuation);
+}
+
+.token.decorator {
+  color: var(--prism-color-decorator);
+}
+
+.token.regex {
+  color: var(--prism-color-regex);
 }
 
 /* Inline code */
