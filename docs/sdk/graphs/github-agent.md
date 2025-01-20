@@ -21,16 +21,20 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# Set required state values for github-agent-6
+# Set required state values for github-agent-48
+# Visit the 'API' tab for the graph (https://www.lmsystems.ai/graphs/github-agent-48) to find the exact input variables.
 state_values = {
     "repo_url": "https://github.com/yourusername/yourrepo",
     "github_token": os.getenv("GITHUB_TOKEN"),
-    "repo_path": "/path/to/repo"
+    "repo_path": "/users/12345",
+    "branch_name": "github_agent",
+    "model_name": "sonnet",
+    "anthropic_api_key": os.getenv("ANTHROPIC_API_KEY")
 }
 
 # Initialize the purchased graph
 purchased_graph = PurchasedGraph(
-    graph_name="github-agent-6",
+    graph_name="github-agent-48",
     api_key=os.environ.get("LMSYSTEMS_API_KEY"),
     default_state_values=state_values
 )
