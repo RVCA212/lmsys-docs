@@ -15,52 +15,48 @@ from lmsystems.purchased_graph import PurchasedGraph
 from langgraph.graph import StateGraph, START, MessagesState
 import os
 from dotenv import load_dotenv
+import logging
 
-# Load environment variables
-load_dotenv()
+def main():
 
-# Define required state values (these will vary based on the graph you're using)
-state_values = {
-    "city": "Seattle",
-    "state": "WA",
-}
+    # Load environment variables
+    load_dotenv()
 
-# Instantiate the purchased graph with configuration
-purchased_graph = PurchasedGraph(
-    graph_name="your-graph-name",
-    api_key=os.environ.get("LMSYSTEMS_API_KEY"),
-    default_state_values=state_values,
-    config={
-        "configurable": {
-            "temperature": 0.7,  # Optional runtime configuration
-            "max_tokens": 1000
+    # Initialize our purchased graph (which wraps RemoteGraph)
+    purchased_graph = PurchasedGraph(
+        graph_name="github-agent-48",
+        api_key=os.getenv("LMSYSTEMS_API_KEY"),
+        default_state_values={
+            "repo_url": "https://github.com/RVCA212/lmsys-docs",
+            "github_token": os.getenv("GITHUB_TOKEN"),
+            "repo_path": "users/152343",
+            "branch_name": "stream-test",
+            "model_name": "gpt-4o-mini"
         }
-    }
-)
+    )
 
-# Define your parent graph with MessagesState schema
-builder = StateGraph(MessagesState)
-builder.add_node("purchased_node", purchased_graph)
-builder.add_edge(START, "purchased_node")
-graph = builder.compile()
+    # Create parent graph and add our purchased graph as a node
+    builder = StateGraph(MessagesState)
+    builder.add_node("purchased_node", purchased_graph)
+    builder.add_edge(START, "purchased_node")
+    graph = builder.compile()
 
-# Basic invocation (state values are automatically included)
-result = graph.invoke({
-    "messages": [{"role": "user", "content": "What's the weather right now?"}]
-})
-print(result)
+    # Use the parent graph - invoke
+    # result = graph.invoke({
+    #     "messages": [{"role": "user", "content": "analyze the code structure"}]
+    # })
+    # print("Parent graph result:", result)
 
-# Stream with all available modes
-for chunk in graph.stream({
-    "messages": [{"role": "user", "content": "What's the weather right now?"}]
-}, stream_mode=["messages", "values", "updates"], subgraphs=True):
-    if isinstance(chunk, dict):
-        if "message" in chunk:
-            print(f"Message: {chunk['message']['content']}")
-        elif "value" in chunk:
-            print(f"Value update: {chunk['value']}")
-        elif "update" in chunk:
-            print(f"Status update: {chunk['update']}")
+    # Use the parent graph - stream
+    for chunk in graph.stream({
+        "messages": [{"role": "user", "content": "hello"}]
+    }, subgraphs=True):  # Include outputs from our purchased graph
+        print("Stream chunk:", chunk)
+
+if __name__ == "__main__":
+    main()
+
+
 ```
 
 ### Error Handling with PurchasedGraph
