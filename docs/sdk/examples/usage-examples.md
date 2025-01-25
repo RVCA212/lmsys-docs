@@ -22,10 +22,13 @@ def main():
     # Load environment variables
     load_dotenv()
 
-    # Initialize our purchased graph (which wraps RemoteGraph)
+    # Initialize our Purchased Graph
     purchased_graph = PurchasedGraph(
+        # Input Graph ID here
         graph_name="github-agent-48",
         api_key=os.getenv("LMSYSTEMS_API_KEY"),
+
+        # Each graph has unique state values:
         default_state_values={
             "repo_url": "https://github.com/RVCA212/lmsys-docs",
             "github_token": os.getenv("GITHUB_TOKEN"),
