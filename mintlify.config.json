@@ -1,0 +1,10 @@
+{
+  "siteConfig": {
+    "title": "Mintlify Documentation Site",
+    "description": "Your project's documentation"
+  },
+  "mintlify": {
+    "apiKey": "YOUR_API_KEY",
+    "enabled": true
+  }
+}
