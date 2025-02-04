@@ -44,6 +44,14 @@
               "id": "sdk/graphs/github-agent",
               "path": "/docs/sdk/graphs/github-agent",
               "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sdk/graphs/groq-research-agent",
+              "path": "/docs/sdk/graphs/groq-research-agent"
+            },
+            {
+              "id": "sdk/graphs/json-llm-graph",
+              "path": "/docs/sdk/graphs/json-llm-graph"
             }
           ],
           "draftIds": [],
