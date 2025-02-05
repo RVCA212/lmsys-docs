@@ -26,7 +26,9 @@ const sidebars = {
       type: 'category',
       label: 'Graphs',
       items: [
-        'sdk/graphs/github-agent'
+        'sdk/graphs/github-agent',
+        'sdk/graphs/groq-research-agent.md',
+        'sdk/graphs/json-llm-graph.md',
       ],
     },
     {
