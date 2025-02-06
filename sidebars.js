@@ -27,8 +27,8 @@ const sidebars = {
       label: 'Graphs',
       items: [
         'sdk/graphs/github-agent',
-        'sdk/graphs/groq-research-agent.md',
-        'sdk/graphs/json-llm-graph.md',
+        'sdk/graphs/groq-research-agent',
+        'sdk/graphs/json-llm-graph',
       ],
     },
     {

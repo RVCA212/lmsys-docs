@@ -17,7 +17,7 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "GitHub Agent Example",
-    "permalink": "/docs/sdk/graphs/github-agent"
+    "title": "JSON Structure Extraction Example",
+    "permalink": "/docs/sdk/graphs/json-llm-graph"
   }
 }
