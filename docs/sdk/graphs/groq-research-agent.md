@@ -27,9 +27,7 @@ def basic_research(topic: str):
         for chunk in client.stream_run(
             thread=thread,
             input={
-                "research_topic": topic,  # Required
-                "search_query": f"Latest research on {topic}",  # Optional
-                "running_summary": ""  # Optional initial summary
+                "research_topic": topic
             },
             config={
                 "configurable": {
@@ -68,7 +66,7 @@ if __name__ == "__main__":
 ```python
 config = {
     "configurable": {
-        "llm": "mixtral-8x7b-32768",  # Required Groq model
+        "llm": "",  # Required Groq model
         "groq_api_key": "your-groq-key",  # Required
         "tavily_api_key": "your-tavily-key",  # Required
         "max_web_research_loops": 5  # Optional (default: 3)
@@ -76,50 +74,8 @@ config = {
 }
 ```
 
-## Advanced Usage Example
 
-```python
-from lmsystems import ThreadStatus
-
-def iterative_research(topic: str, max_loops=5):
-    thread = client.threads.create()
-    current_state = {
-        "research_topic": topic,
-        "research_loop_count": 0
-    }
-
-    try:
-        while current_state["research_loop_count"] < max_loops:
-            for chunk in client.stream_run(
-                thread=thread,
-                input=current_state,
-                config={
-                    "configurable": {
-                        "llm": "llama-3.1-8b-instant",
-                        "max_web_research_loops": max_loops,
-                        # API keys from environment
-                    }
-                },
-                stream_mode=["values", "updates"]
-            ):
-                if "value" in chunk:
-                    current_state.update(chunk["value"])
-                if "update" in chunk:
-                    print(f"Status: {chunk['update']}")
-
-            print(f"Completed loop {current_state['research_loop_count']}")
-
-            if client.get_thread_status(thread) == ThreadStatus.COMPLETED:
-                break
-
-        return current_state["running_summary"]
-
-    except APIError as e:
-        print(f"Research interrupted: {str(e)}")
-        return current_state.get("running_summary", "")
-```
-
-## Error Handling
+### Error Handling
 
 ```python
 from lmsystems import (
@@ -157,8 +113,8 @@ except GraphExecutionError as e:
    ```
 
 3. **Model Selection**
-   - Supported Groq models: `llama3-70b-8192`, `mixtral-8x7b-32768`, `llama3-8b-8192`
-   - Choose based on needed complexity/speed
+   - Supported Groq models: I believe all models are supported (including deepseek-r1), although i've only tested llama and deepseek models.
+
 
 4. **Result Processing**
    ```python

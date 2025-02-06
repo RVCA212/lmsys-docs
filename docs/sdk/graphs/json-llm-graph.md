@@ -25,9 +25,7 @@ def extract_structured_data(text: str, schema: list):
             thread=thread,
             input={
                 "text": text,  # Required
-                "schema_definition": schema,  # Required
-                "error": "",  # Optional error from previous attempts
-                "result": ""  # Optional previous result
+                "schema_definition": schema  # Required
             },
             stream_mode=["messages", "updates"],
             multitask_strategy=MultitaskStrategy.REJECT
