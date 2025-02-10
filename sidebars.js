@@ -29,6 +29,7 @@ const sidebars = {
         'sdk/graphs/github-agent',
         'sdk/graphs/groq-research-agent',
         'sdk/graphs/json-llm-graph',
+        'sdk/graphs/exa-search-agent',
       ],
     },
     {
