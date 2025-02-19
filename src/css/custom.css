@@ -14,28 +14,37 @@
   --ifm-color-primary-lighter: #8595ef;
   --ifm-color-primary-lightest: #90a0f1;
   --ifm-code-font-size: 95%;
+  --ifm-background-color: #f8f9fa;
+  --ifm-background-surface-color: #ffffff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-toc-border-color: #e0e0e0;
+  --ifm-font-color-base: #1c1e21;
+  --ifm-navbar-background-color: var(--ifm-background-color);
+  --ifm-footer-background-color: var(--ifm-background-color);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #6b7fe8;
-  --ifm-color-primary-dark: #576bd0;
-  --ifm-color-primary-darker: #4359b8;
-  --ifm-color-primary-darkest: #2b47d8;
-  --ifm-color-primary-light: #7f91ef;
-  --ifm-color-primary-lighter: #93a3f6;
-  --ifm-color-primary-lightest: #a7b5fd;
-  --ifm-background-color: #0a0a0a;
-  --ifm-background-surface-color: #151515;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+  --ifm-color-primary: #c5b4f7;
+  --ifm-color-primary-dark: #b39ef5;
+  --ifm-color-primary-darker: #a188f3;
+  --ifm-color-primary-darkest: #8f72f1;
+  --ifm-color-primary-light: #d7caf9;
+  --ifm-color-primary-lighter: #e9e0fb;
+  --ifm-color-primary-lightest: #fbf6fd;
+  --ifm-background-color: #0d0d0d;
+  --ifm-background-surface-color: #0d0d0d;
+  --ifm-toc-border-color: #2a2a2a;
+  --ifm-font-color-base: #ffffff;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0);
+  --ifm-navbar-background-color: #0d0d0d;
 }
 
 /* Custom styles */
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--ifm-toc-border-color);
-  background-color: var(--ifm-background-color);
+  background-color: var(--ifm-navbar-background-color);
 }
 
 .footer--dark {
@@ -43,8 +52,10 @@
   border-top: 1px solid var(--ifm-toc-border-color);
 }
 
+/* Update sidebar styling to use theme variables */
 .theme-doc-sidebar-container {
   border-right: 1px solid var(--ifm-toc-border-color) !important;
+  background-color: var(--ifm-background-color);
 }
 
 .theme-doc-toc-desktop {
@@ -53,13 +64,14 @@
 
 /* Code blocks */
 .prism-code {
-  background-color: var(--ifm-background-surface-color) !important;
-  border: 1px solid var(--ifm-toc-border-color);
+  background-color: #1a1a1a !important;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
 }
 
-/* Custom syntax highlighting theme */
+/* Custom syntax highlighting theme - VS Code-like colors */
 [data-theme='light'] {
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0);
   --prism-color-text: #24292e;
   --prism-color-comment: #6a737d;
   --prism-color-string: #032f62;
@@ -79,23 +91,22 @@
 }
 
 [data-theme='dark'] {
-  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
-  --prism-color-text: #e1e4e8;
-  --prism-color-comment: #6a737d;
-  --prism-color-string: #9ecbff;
-  --prism-color-var: #79b8ff;
-  --prism-color-function: #b392f0;
-  --prism-color-keyword: #f97583;
-  --prism-color-number: #79b8ff;
-  --prism-color-constant: #79b8ff;
-  --prism-color-class: #85e89d;
-  --prism-color-builtin: #79b8ff;
-  --prism-color-property: #79b8ff;
-  --prism-color-namespace: #e1e4e8;
-  --prism-color-punctuation: #e1e4e8;
-  --prism-color-decorator: #b392f0;
-  --prism-color-regex: #9ecbff;
-  --prism-color-json-property: #9ecbff;
+  --prism-color-text: #d4d4d4;
+  --prism-color-comment: #6a9955;
+  --prism-color-string: #ce9178;
+  --prism-color-var: #9cdcfe;
+  --prism-color-function: #dcdcaa;
+  --prism-color-keyword: #569cd6;
+  --prism-color-number: #b5cea8;
+  --prism-color-constant: #4fc1ff;
+  --prism-color-class: #4ec9b0;
+  --prism-color-builtin: #4ec9b0;
+  --prism-color-property: #9cdcfe;
+  --prism-color-namespace: #4ec9b0;
+  --prism-color-punctuation: #d4d4d4;
+  --prism-color-decorator: #bd63c5;
+  --prism-color-regex: #d16969;
+  --prism-color-json-property: #9cdcfe;
 }
 
 code[class*='language-'],
@@ -178,13 +189,30 @@ code {
   transition: all 0.2s ease-in-out;
 }
 
+/* Remove dark background for secondary buttons */
+.button--secondary {
+  background-color: transparent;
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
+}
+
+.button--secondary:hover {
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(197, 180, 247, 0);
+}
+
+/* Keep other button styles */
 .button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(99, 101, 229, 0.2);
+  box-shadow: 0 4px 12px rgba(197, 180, 247, 0.2);
 }
 
 /* Cards */
 .card {
+  background-color: var(--ifm-background-color);
   border: 1px solid var(--ifm-toc-border-color);
   border-radius: 8px;
   transition: all 0.2s ease-in-out;
@@ -192,18 +220,18 @@ code {
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 12px rgba(197, 180, 247, 0.1);
 }
 
 /* Tables */
 table {
+  background-color: var(--ifm-background-color);
   border: 1px solid var(--ifm-toc-border-color);
-  border-radius: 8px;
-  overflow: hidden;
 }
 
 th {
-  background-color: var(--ifm-background-surface-color);
+  background-color: var(--ifm-background-color);
 }
 
 /* Admonitions */
@@ -214,10 +242,12 @@ th {
 
 /* Search */
 .DocSearch {
-  --docsearch-searchbox-background: var(--ifm-background-surface-color);
-  --docsearch-searchbox-focus-background: var(--ifm-background-surface-color);
-  --docsearch-hit-background: var(--ifm-background-surface-color);
   --docsearch-modal-background: var(--ifm-background-color);
+  --docsearch-searchbox-background: var(--ifm-background-color);
+  --docsearch-searchbox-focus-background: var(--ifm-background-color);
+  --docsearch-hit-background: var(--ifm-background-color);
+  --docsearch-highlight-color: var(--ifm-color-primary);
+  --docsearch-primary-color: var(--ifm-color-primary);
 }
 
 .DocSearch-Button {
@@ -235,7 +265,7 @@ th {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--ifm-toc-border-color);
+  background: var(--ifm-background-color);
   border-radius: 4px;
 }
 
@@ -259,16 +289,42 @@ th {
 
 /* Logo sizing */
 .navbar__logo {
-  height: 4rem; /* Adjust this value to match your desired height */
-  width: auto; /* This maintains aspect ratio */
+  height: 4rem;
+  width: auto;
 }
 
-/* If needed, add padding to ensure proper spacing */
 .navbar__brand {
   margin-right: 1rem;
 }
 
-/* Dark mode adjustments if needed */
+/* Optional: make logo slightly brighter in dark mode */
 [data-theme='dark'] .navbar__logo {
-  filter: brightness(1.5); /* Optional: makes logo slightly brighter in dark mode */
+  filter: brightness(1.2);
+}
+
+/* Main content background */
+.main-wrapper {
+  background-color: var(--ifm-background-color);
+}
+
+/* Ensure doc content has correct background */
+.docPage_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-styles-module,
+.docMainContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-Main-styles-module,
+main[class^='docMainContainer'] {
+  background-color: var(--ifm-background-color);
+}
+
+/* Markdown content background */
+article {
+  background-color: var(--ifm-background-color);
+}
+
+/* Homepage background */
+[class^='docPage_'] {
+  background-color: var(--ifm-background-color);
+}
+
+/* Ensure consistent dark background */
+.container {
+  background-color: var(--ifm-background-color);
 }

@@ -41,6 +41,11 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "sdk/graphs/exa-search-agent",
+              "path": "/docs/sdk/graphs/exa-search-agent",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "sdk/graphs/github-agent",
               "path": "/docs/sdk/graphs/github-agent",
               "sidebar": "tutorialSidebar"

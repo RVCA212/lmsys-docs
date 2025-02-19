@@ -17,7 +17,7 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "JSON Structure Extraction Example",
-    "permalink": "/docs/sdk/graphs/json-llm-graph"
+    "title": "exa-search-agent",
+    "permalink": "/docs/sdk/graphs/exa-search-agent"
   }
 }

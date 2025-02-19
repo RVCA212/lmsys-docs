@@ -8,7 +8,7 @@ const darkCodeTheme = themes.dracula;
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'LMSystems SDK',
-  tagline: 'Build powerful AI applications with LMSystems marketplace graphs',
+  tagline: 'Build powerful AI applications with LMSystems Graphs',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -131,11 +131,11 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} LMSystems, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Quikwork`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: require('prism-react-renderer').themes.vsDark,
+        darkTheme: require('prism-react-renderer').themes.vsDark,
         additionalLanguages: ['python'],
       },
       colorMode: {

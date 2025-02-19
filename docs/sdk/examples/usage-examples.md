@@ -11,56 +11,68 @@ This page provides comprehensive examples of using the LMSystems SDK in differen
 The `PurchasedGraph` class allows you to integrate purchased marketplace graphs into your LangGraph applications. Here's a complete example:
 
 ```python
+from lmsystems import config
 from lmsystems.purchased_graph import PurchasedGraph
 from langgraph.graph import StateGraph, START, MessagesState
 import os
 from dotenv import load_dotenv
+import logging
+from dataclasses import dataclass
 
-# Load environment variables
-load_dotenv()
 
-# Define required state values (these will vary based on the graph you're using)
-state_values = {
-    "city": "Seattle",
-    "state": "WA",
-}
+@dataclass
+class ResearchState:
+    research_topic: str
 
-# Instantiate the purchased graph with configuration
-purchased_graph = PurchasedGraph(
-    graph_name="your-graph-name",
-    api_key=os.environ.get("LMSYSTEMS_API_KEY"),
-    default_state_values=state_values,
-    config={
-        "configurable": {
-            "temperature": 0.7,  # Optional runtime configuration
-            "max_tokens": 1000
-        }
-    }
-)
 
-# Define your parent graph with MessagesState schema
-builder = StateGraph(MessagesState)
-builder.add_node("purchased_node", purchased_graph)
-builder.add_edge(START, "purchased_node")
-graph = builder.compile()
+api_key = os.environ.get("LMSYSTEMS_API_KEY")
 
-# Basic invocation (state values are automatically included)
-result = graph.invoke({
-    "messages": [{"role": "user", "content": "What's the weather right now?"}]
-})
-print(result)
+graph_name = "groq-deep-research-agent-51"
 
-# Stream with all available modes
-for chunk in graph.stream({
-    "messages": [{"role": "user", "content": "What's the weather right now?"}]
-}, stream_mode=["messages", "values", "updates"], subgraphs=True):
-    if isinstance(chunk, dict):
-        if "message" in chunk:
-            print(f"Message: {chunk['message']['content']}")
-        elif "value" in chunk:
-            print(f"Value update: {chunk['value']}")
-        elif "update" in chunk:
-            print(f"Status update: {chunk['update']}")
+def main():
+
+    # Load environment variables
+    load_dotenv()
+
+    # Initialize our purchased graph (which wraps RemoteGraph)
+    purchased_graph = PurchasedGraph(
+        graph_name=graph_name,
+        api_key=api_key,
+        default_state_values = {
+        "research_topic":"what is railway.com and what do they do with ai specifically?"
+        },
+
+        config =  {
+            "configurable": {
+                "llm": "llama-3.1-8b-instant",
+                "tavily_api_key": "",
+                "groq_api_key": ""
+            }
+        },
+    )
+
+    # Create parent graph and add our purchased graph as a node
+    builder = StateGraph(ResearchState)
+    builder.add_node("purchased_node", purchased_graph)
+    builder.add_edge(START, "purchased_node")
+    graph = builder.compile()
+
+    # Use the parent graph - invoke
+    result = graph.invoke({
+        "research_topic": "what are the best agent frameworks for building apps with llms?"
+    })
+    print("Parent graph result:", result)
+
+    # Use the parent graph - stream
+    for chunk in graph.stream({
+        "research_topic":"what are the best agent frameworks for building apps with llms?"
+    }, subgraphs=True):  # Include outputs from our purchased graph
+        print("Stream chunk:", chunk)
+
+if __name__ == "__main__":
+    main()
+
+
 ```
 
 ### Error Handling with PurchasedGraph
