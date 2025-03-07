@@ -155,7 +155,7 @@ You can apply transformations to extracted values:
     {
       "name": "latest_version",
       "path": "versions",
-      "transform": "keys | sort | last",
+      "transform": "keys_sort_last",
       "primary": true
     }
   ]
@@ -172,6 +172,9 @@ You can apply transformations to extracted values:
 - `last` - Get last element of array
 - `length` - Get length of array/string
 - `join:separator` - Join array with separator (e.g., `join:,`)
+- `keys` - Get object keys as array
+- `keys_sort_last` - Get sorted object keys and take last one
+- `keys_sort_first` - Get sorted object keys and take first one
 
 ### Alternative Format: JSONSchema
 
@@ -203,8 +206,8 @@ The system also supports JSONSchema format, but it's less flexible:
 
 When using curl commands with jq filters, the output schema will be applied to the filtered result:
 
-```
-curl ... | jq '.versions | keys'
+```bash
+curl ... && jq ".versions.keys"
 ```
 
 With schema:
@@ -243,10 +246,15 @@ For optimal command processing:
 Need help with your output schema? Use this prompt with ChatGPT to automatically generate the correct output schema for any API response:
 
 ```
-please modify this output schema <your_output_schema>```  ```</your_output_schema> given I would like to only return the fields 'x' and 'y'.
+Please modify this output schema:
 
-to know how to modify my schema, please see how this schema was modified to only return the 'messages' content:
-<original_schema>```
+[YOUR_OUTPUT_SCHEMA]
+
+I would like to only return the fields 'x' and 'y'.
+
+For reference, here's an example of how a schema was modified to only return specific fields:
+
+Original Response:
 {
   "id": "3c90c3cc-0d44-4b50-8888-8dd25736052a",
   "model": "sonar",
@@ -265,7 +273,7 @@ to know how to modify my schema, please see how this schema was modified to only
       "finish_reason": "stop",
       "message": {
         "role": "assistant",
-        "content": "The number of stars in the Milky Way galaxy is estimated to be between 100 billion and 400 billion stars. The most recent estimates from the Gaia mission suggest that there are approximately 100 to 400 billion stars in the Milky Way, with significant uncertainties remaining due to the difficulty in detecting faint red dwarfs and brown dwarfs."
+        "content": "The number of stars in the Milky Way galaxy is estimated to be between 100 billion and 400 billion stars."
       },
       "delta": {
         "role": "assistant",
@@ -279,10 +287,8 @@ to know how to modify my schema, please see how this schema was modified to only
     "total_tokens": 84
   }
 }
-```</original_schema>
 
-<post_process_schema>
-```
+Output Schema:
 {
   "output_fields": [
     {
@@ -297,9 +303,6 @@ to know how to modify my schema, please see how this schema was modified to only
     }
   ]
 }
-```
-</post_process_schema>
-now modify my schema in the same way:
 ```
 
 ## Getting Started

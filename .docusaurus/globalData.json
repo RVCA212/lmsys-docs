@@ -16,6 +16,11 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "mcp/intro",
+              "path": "/docs/mcp/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "sdk/api/lmsystems-client",
               "path": "/docs/sdk/api/lmsystems-client",
               "sidebar": "tutorialSidebar"

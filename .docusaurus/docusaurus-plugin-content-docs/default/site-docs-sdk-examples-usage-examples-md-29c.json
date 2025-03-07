@@ -19,5 +19,9 @@
   "previous": {
     "title": "Exa Search Agent Example",
     "permalink": "/docs/sdk/graphs/exa-search-agent"
+  },
+  "next": {
+    "title": "MCP Servers",
+    "permalink": "/docs/mcp/intro"
   }
 }

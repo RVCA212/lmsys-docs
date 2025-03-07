@@ -192,16 +192,16 @@ code {
 /* Remove dark background for secondary buttons */
 .button--secondary {
   background-color: transparent;
-  color: var(--ifm-color-primary);
-  border: 1px solid var(--ifm-color-primary);
+  color: #ffffff;
+  border: 1px solid #ffffff;
 }
 
 .button--secondary:hover {
-  background-color: var(--ifm-color-primary);
+  background-color: #ffffff;
   color: var(--ifm-background-color);
   text-decoration: none;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(197, 180, 247, 0);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
 }
 
 /* Keep other button styles */
