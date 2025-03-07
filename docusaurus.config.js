@@ -109,6 +109,15 @@ const config = {
             ],
           },
           {
+            title: 'MCP Servers',
+            items: [
+              {
+                label: 'Introduction',
+                to: '/docs/mcp/intro',
+              },
+            ],
+          },
+          {
             title: 'Community',
             items: [
               {
