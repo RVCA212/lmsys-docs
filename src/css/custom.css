@@ -191,8 +191,8 @@ code {
 
 /* Remove dark background for secondary buttons */
 .button--secondary {
-  background-color: transparent;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: var(--ifm-background-color);
   border: 1px solid #ffffff;
 }
 
@@ -200,14 +200,14 @@ code {
   background-color: #ffffff;
   color: var(--ifm-background-color);
   text-decoration: none;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  transform: none;
+  box-shadow: none;
 }
 
 /* Keep other button styles */
 .button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(197, 180, 247, 0.2);
+  box-shadow: 0 4px 12px rgba(116, 123, 240, 0.2);
 }
 
 /* Cards */
@@ -221,7 +221,7 @@ code {
 .card:hover {
   transform: translateY(-2px);
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 4px 12px rgba(197, 180, 247, 0.1);
+  box-shadow: 0 4px 12px rgba(116, 123, 240, 0.1);
 }
 
 /* Tables */
