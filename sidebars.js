@@ -38,6 +38,13 @@ const sidebars = {
       items: [
         'sdk/examples/usage-examples'
       ],
+    },
+    {
+      type: 'category',
+      label: 'MCP Servers',
+      items: [
+        'mcp/intro',
+      ],
     }
   ],
 };
