@@ -8,7 +8,7 @@ Creating an MCP server is quick and straightforward:
 
 1. **Paste your curl command** - Add your API curl command as a single line in the editor. Include your API key if the server will be private.
 2. **Create variables** - Add `{variable_name}` placeholders in your curl command for dynamic values users will provide.
-3. **Set up schemas** - Define your input and output schemas, then save. Your MCP server is now ready to use!
+3. **Set up [input and output schemas](#input-schema)** - Define your input and output schemas, then save. Your MCP server is now ready to use!
 
 ## What You Get
 
@@ -19,8 +19,7 @@ Creating an MCP server is quick and straightforward:
 - Full access with unlimited calls for $10/month
 
 ## Example: Perplexity API Server
-
-Here's how we created the Perplexity API server that's already available in our marketplace:
+Here's how we created the [Perplexity API](https://docs.perplexity.ai/api-reference/chat-completions?playground=open) server that's already available in our marketplace:
 
 ### Curl Command (Single Line)
 
@@ -52,6 +51,71 @@ We added `{user_message}` as a variable that users can customize.
 ```
 
 This schema defines the 'user_message' variable that will be inserted into the curl command.
+
+## Input Schema Guide
+
+Input schemas define the structure and requirements for inputs your MCP server expects. Properly defined schemas ensure that your API receives correctly formatted data.
+
+### Defining Input Schemas
+
+An input schema typically looks like this:
+
+```json
+{
+  "type": "object",
+  "required": ["user_message"],
+  "properties": {
+    "user_message": {
+      "type": "string",
+      "description": "Your question or search query"
+    }
+  }
+}
+
+```
+
+### Enhanced Example with Default Values
+
+Input schemas can include default values to simplify user interaction. Here’s a comprehensive example:
+
+```json
+{
+  "name": "Langchain Docs Agent",
+  "description": "Langchain docs agent. Searches, answers questions, and provides examples from the Langchain documentation.",
+  "inputSchema": {
+    "type": "object",
+    "required": ["user_message"],
+    "properties": {
+      "user_message": {
+        "type": "string",
+        "description": "Your question or search query"
+      },
+      "sources": {
+        "type": "array",
+        "default": ["langchain.com", "docs.langchain.com"],
+        "description": "Domains to search, formatted without 'https://' or subdomains."
+      }
+    }
+  }
+}
+```
+
+In this schema:
+- `user_message` is required.
+- `sources` includes default values, so users don't have to specify this parameter unless they want different domains.
+
+### Schema Structure
+
+Input schemas should follow these guidelines:
+- Clearly specify required fields.
+- Include descriptive text for clarity.
+- Use default values when appropriate to simplify API usage.
+
+### Further Reading
+
+To learn more about input schemas, tool definitions, and best practices, visit the [Model Context Protocol Documentation on Tools](https://modelcontextprotocol.io/docs/concepts/tools).
+
+
 
 ## Output Schema Guide
 
@@ -239,7 +303,7 @@ For optimal command processing:
 - Use variable placeholders with `{name}` syntax
 - Always set `"stream": false` for API endpoints
 
-## Output Schema Helper
+## Output Schema Prompt
 
 Need help with your output schema? Use this prompt with ChatGPT to automatically generate the correct output schema for any API response:
 
@@ -260,10 +324,7 @@ Original Response:
   "created": 1724369245,
   "citations": [
     "https://www.astronomy.com/science/astro-for-kids-how-many-stars-are-there-in-space/",
-    "https://www.esa.int/Science_Exploration/Space_Science/Herschel/How_many_stars_are_there_in_the_Universe",
-    "https://www.space.com/25959-how-many-stars-are-in-the-milky-way.html",
-    "https://www.space.com/26078-how-many-stars-are-there.html",
-    "https://en.wikipedia.org/wiki/Milky_Way"
+    "https://www.space.com/25959-how-many-stars-are-in-the-milky-way.html"
   ],
   "choices": [
     {
