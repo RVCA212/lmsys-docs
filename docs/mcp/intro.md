@@ -1,6 +1,6 @@
 # Introduction
 
-MCP (Model Control Protocol) Servers allow you to turn any API into a hosted server - completely free. With an LMSystems account and a curl command for the API you want to use, you can create and host your own MCP server in minutes, with no coding required.
+MCP (Model Control Protocol) Servers allow you to turn any API into a hosted server. With an LMSystems account and a curl command for the API you want to use, you can create and host your own MCP server in minutes, with no coding required.
 
 ## How It Works
 
@@ -16,7 +16,7 @@ Creating an MCP server is quick and straightforward:
 - Private or public sharing options
 - Works with any API that accepts curl commands
 - No coding or backend setup required
-- Completely free to use
+- Full access with unlimited calls for $10/month
 
 ## Example: Perplexity API Server
 
@@ -306,3 +306,5 @@ Output Schema:
 ## Getting Started
 
 Ready to create your own MCP server? Visit the [MCP Servers page](/account/mcp-servers) to get started. The Perplexity API server is already available in our marketplace, and we'd love to see what you'll add next!
+
+For just $10/month, you'll get full access to create, use, and distribute MCP servers with unlimited calls.
