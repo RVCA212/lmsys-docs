@@ -12,7 +12,7 @@ Creating an MCP server is quick and straightforward:
 
 ## What You Get
 
-- Instant hosting of your API
+- Instant hosting of your API as an SSE MCP Server
 - Private or public sharing options
 - Works with any API that accepts curl commands
 - No coding or backend setup required
