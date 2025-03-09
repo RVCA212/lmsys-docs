@@ -129,8 +129,8 @@ export default {
     "prism": {
       "theme": {
         "plain": {
-          "color": "#9CDCFE",
-          "backgroundColor": "#1E1E1E"
+          "color": "#dfdbd7",
+          "backgroundColor": "#dbd1d0"
         },
         "styles": [
           {
@@ -272,7 +272,7 @@ export default {
       },
       "darkTheme": {
         "plain": {
-          "color": "#9CDCFE",
+          "color": "#dfdbd7",
           "backgroundColor": "#1E1E1E"
         },
         "styles": [
