@@ -56,24 +56,6 @@ This schema defines the 'user_message' variable that will be inserted into the c
 
 Input schemas define the structure and requirements for inputs your MCP server expects. Properly defined schemas ensure that your API receives correctly formatted data.
 
-### Defining Input Schemas
-
-An input schema typically looks like this:
-
-```json
-{
-  "type": "object",
-  "required": ["user_message"],
-  "properties": {
-    "user_message": {
-      "type": "string",
-      "description": "Your question or search query"
-    }
-  }
-}
-
-```
-
 ### Enhanced Example with Default Values
 
 Input schemas can include default values to simplify user interaction. Here’s a comprehensive example:
