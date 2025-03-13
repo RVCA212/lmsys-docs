@@ -58,7 +58,7 @@ Input schemas define the structure and requirements for inputs your MCP server e
 
 ### Enhanced Example with Default Values
 
-Input schemas can include default values to simplify user interaction. Here’s a comprehensive example:
+Input schemas can include default values to simplify user interaction. Here's a comprehensive example:
 
 ```json
 {
@@ -96,8 +96,6 @@ Input schemas should follow these guidelines:
 ### Further Reading
 
 To learn more about input schemas, tool definitions, and best practices, visit the [Model Context Protocol Documentation on Tools](https://modelcontextprotocol.io/docs/concepts/tools).
-
-
 
 ## Output Schema Guide
 
@@ -351,3 +349,67 @@ Output Schema:
 Ready to create your own MCP server? Visit the [MCP Servers page](/account/mcp-servers) to get started. The Perplexity API server is already available in our marketplace, and we'd love to see what you'll add next!
 
 For just $10/month, you'll get full access to create, use, and distribute MCP servers with unlimited calls.
+
+## Using MCP Servers in Agents
+
+MCP servers can be easily integrated with LangChain and LangGraph to create powerful AI agents. This section shows you how to use MCP servers in your agent workflows.
+
+### Installation
+
+First, install the required packages:
+
+```bash
+pip install langchain-mcp-adapters langgraph langchain-openai
+
+export OPENAI_API_KEY=<your_api_key>
+```
+
+### Example Usage
+
+Here's an example of how to use LMSystems' MCP servers in an agent:
+
+```python
+from langchain_mcp_adapters.client import MultiServerMCPClient
+from langgraph.prebuilt import create_react_agent
+from langchain_openai import ChatOpenAI
+import asyncio
+
+async def main():
+    model = ChatOpenAI(model="gpt-4o")
+
+    async with MultiServerMCPClient(
+        {
+            "npm and pypi": {
+                # Connect to the npm and pypi tools
+                "url": "https://server.lmsystems.ai/sse?<lmsys-api-key>&cmd_id=50&cmd_id=51",
+                "transport": "sse",
+            }
+        }
+    ) as client:
+        # Create a ReAct agent with the MCP tools
+        agent = create_react_agent(model, client.get_tools())
+
+        # Invoke the agent with a query
+        test_response = await agent.ainvoke({"messages": "what's the latest version for lmsystems package on npm and pypi?"})
+        print(test_response)  # Print the response
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+In this example:
+1. We initialize a ChatOpenAI model
+2. We create a MultiServerMCPClient that connects to the npm and pypi tools via SSE
+3. We create a ReAct agent using LangGraph's prebuilt agent and the MCP tools
+4. We invoke the agent with a query asking about package versions
+
+The agent will use the MCP tools to check the latest versions of the requested packages and return the results.
+
+### Key Features
+
+- **Easy Integration**: MCP servers integrate seamlessly with LangChain's tools system
+- **Async Support**: Full support for async operations in modern agent frameworks
+- **Multiple Tools**: Connect to multiple MCP tools in a single client
+- **SSE Transport**: Efficient streaming events from the server
+
+For more information about LangChain mcp adapters, visit the [langchain-mcp-adapters](https://github.com/langchain-ai/langchain-mcp-adapters).
