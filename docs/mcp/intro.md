@@ -24,7 +24,7 @@ Here's how we created the [Perplexity API](https://docs.perplexity.ai/api-refere
 ### Curl Command (Single Line)
 
 ```bash
-curl --request POST --url https://api.perplexity.ai/chat/completions --header 'Authorization: Bearer api-key-here' --header 'Content-Type: application/json' --data '{"model": "sonar-deep-research", "messages": [{"role": "user", "content": "{user_message}"}], "stream": false}'
+curl --request POST --url https://api.perplexity.ai/chat/completions --header 'Authorization: Bearer <api-key-here>' --header 'Content-Type: application/json' --data '{"model": "sonar-deep-research", "messages": [{"role": "user", "content": "{user_message}"}], "stream": false}'
 ```
 
 We added `{user_message}` as a variable that users can customize.
