@@ -1,6 +1,6 @@
 # Introduction
 
-MCP (Model Control Protocol) Servers allow you to turn any API into a hosted server. With an LMSystems account and a curl command for the API you want to use, you can create and host your own MCP server in minutes, with no coding required.
+MCP (Model Control Protocol) Servers allow you to turn any API into a hosted server. With an LMSystems account and a curl command for the API you want to use, you can create and host your own MCP server in seconds, with no coding required.
 
 ## How It Works
 
