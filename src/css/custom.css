@@ -6,7 +6,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #f09ce9;
+  --ifm-color-primary: #9d68cb;
   --ifm-color-primary-dark: #b1a2ff;
   --ifm-color-primary-darker: #a562de;
   --ifm-color-primary-darkest: #a562de;
@@ -25,7 +25,7 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #f09ce9;
+  --ifm-color-primary: #bd82f0;
   --ifm-color-primary-dark: #b1a2ff;
   --ifm-color-primary-darker: #a08ff7;
   --ifm-color-primary-darkest: #7d68e5;
@@ -45,6 +45,26 @@
   box-shadow: none;
   border-bottom: 1px solid var(--ifm-toc-border-color);
   background-color: var(--ifm-navbar-background-color);
+  height: 80px;
+  padding: 0 2rem;
+}
+
+/* Adjust navbar items to align vertically in the taller navbar */
+.navbar__items {
+  height: 100%;
+  align-items: center;
+}
+
+.navbar__link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Adjust logo sizing for the taller navbar */
+.navbar__logo {
+  height: 4rem;
+  width: auto;
 }
 
 /* Add this selector to target the main content wrapper */
@@ -334,4 +354,33 @@ article {
 /* Ensure consistent dark background */
 .container {
   background-color: var(--ifm-background-color);
+}
+
+/* Marketplace button styling */
+.marketplace-button {
+  background-color: rgba(158, 72, 232, 0.1); /* Opaque version of #9e48e8 */
+  color: #9d68cb !important;
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  margin-left: 0.75rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #9d68cb;
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  backdrop-filter: blur(5px); /* Optional: adds a slight blur effect */
+}
+
+/* Remove external link icon from marketplace button */
+.marketplace-button svg {
+  display: none !important;
+}
+
+.marketplace-button:hover {
+  background-color: rgba(158, 72, 232, 0.2); /* Slightly more opaque on hover */
+  color: #9d68cb !important;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(158, 72, 232, 0.1);
 }

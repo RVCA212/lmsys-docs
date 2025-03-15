@@ -77,14 +77,10 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/LMSystems-ai/lmsystems-sdk',
-            label: 'GitHub',
-            position: 'right',
-          },
-          {
             href: 'https://www.lmsystems.ai/marketplace',
             label: 'Marketplace',
             position: 'right',
+            className: 'marketplace-button',
           },
         ],
       },

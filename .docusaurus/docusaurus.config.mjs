@@ -60,14 +60,10 @@ export default {
           "position": "right"
         },
         {
-          "href": "https://github.com/LMSystems-ai/lmsystems-sdk",
-          "label": "GitHub",
-          "position": "right"
-        },
-        {
           "href": "https://www.lmsystems.ai/marketplace",
           "label": "Marketplace",
-          "position": "right"
+          "position": "right",
+          "className": "marketplace-button"
         }
       ],
       "hideOnScroll": false
@@ -129,7 +125,7 @@ export default {
     "prism": {
       "theme": {
         "plain": {
-          "color": "#f09ce9",
+          "color": "#9CDCFE",
           "backgroundColor": "#1E1E1E"
         },
         "styles": [
@@ -272,7 +268,7 @@ export default {
       },
       "darkTheme": {
         "plain": {
-          "color": "#f09ce9",
+          "color": "#9CDCFE",
           "backgroundColor": "#1E1E1E"
         },
         "styles": [
